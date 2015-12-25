@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RxJavaWithRetrolambdaSample</string>
+    <string name="name_hint">Please enter something</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="sample1">Sample1</string>
+    <string name="sample2">Sample2</string>
+    <string name="sample3">Sample3</string>
+    <string name="sample4">Sample4</string>
+    <string name="start">Start</string>
+    <string name="end">End</string>
+    <string name="phone_hint">Please enter phone number</string>
+    <string name="complete">Complete</string>
+    <string name="next">Next</string>
+    <string name="invalid">Invalid</string>
+</resources>
