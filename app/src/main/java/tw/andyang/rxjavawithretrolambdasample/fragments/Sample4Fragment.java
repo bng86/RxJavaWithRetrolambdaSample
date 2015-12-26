@@ -41,7 +41,8 @@ public class Sample4Fragment extends BaseFragment {
         phoneEditText = (EditText) view.findViewById(R.id.phoneEditText);
         completeButton = (Button) view.findViewById(R.id.completeButton);
 
-        Observable.combineLatest(textChangeObservable(nameEditText), textChangeObservable(phoneEditText), viewClickObservable(completeButton), this::verify)
+        Observable.combineLatest(textChangeObservable(nameEditText), textChangeObservable(phoneEditText),
+                viewClickObservable(completeButton), this::verify)
                 .compose(bindToLifecycle())
                 .subscribe(this::setComplete);
     }

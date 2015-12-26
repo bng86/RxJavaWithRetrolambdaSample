@@ -2,7 +2,6 @@ package tw.andyang.rxjavawithretrolambdasample.fragments;
 
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -53,6 +52,7 @@ public class Sample1Fragment extends BaseFragment {
 
         ProgressDialog dialog = ProgressDialog.show(getActivity(), "Get pets data", "Loading");
 
+
         api.getPets()
                 .compose(bindToLifecycle())
                 .map(petsResponse -> petsResponse.getResult().getResults())
@@ -76,7 +76,7 @@ public class Sample1Fragment extends BaseFragment {
 
     private boolean networkRetry(int times, Throwable throwable) {
         RetrofitError retrofitError = (RetrofitError) throwable;
-        return retrofitError.getKind() == RetrofitError.Kind.NETWORK || times < 3;
+        return retrofitError.getKind() == RetrofitError.Kind.NETWORK && times < 3;
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -131,19 +131,6 @@ public class Sample1Fragment extends BaseFragment {
 
         private class ViewHolder {
             TextView name, type;
-        }
-    }
-
-    class MyTask extends AsyncTask<String, Integer, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
         }
     }
 
