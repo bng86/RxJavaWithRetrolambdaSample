@@ -70,13 +70,17 @@ public class Sample1Fragment extends BaseFragment {
 
     }
 
-    private void onComplete(){
+    private void onComplete() {
 
     }
 
     private boolean networkRetry(int times, Throwable throwable) {
-        RetrofitError retrofitError = (RetrofitError) throwable;
-        return retrofitError.getKind() == RetrofitError.Kind.NETWORK && times < 3;
+        if (throwable instanceof RetrofitError) {
+            RetrofitError retrofitError = (RetrofitError) throwable;
+            return retrofitError.getKind() == RetrofitError.Kind.NETWORK && times < 3;
+        } else {
+            return false;
+        }
     }
 
     private class MyAdapter extends BaseAdapter {
